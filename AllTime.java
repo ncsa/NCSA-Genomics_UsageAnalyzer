@@ -28,7 +28,7 @@ public class AllTime {
 			String line = null;
 			while ((line = buff.readLine()) != null) {
 				tokens = line.split(" ");
-				System.out.println(tokens[1]);
+				System.out.println(tokens[1].split(";")[1]);
 			}
 
 			while (itr.hasMoreTokens()) {
