@@ -14,14 +14,15 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class AllTime {
 	public static class TokenManager extends Mapper<Object, Text, Text, IntWritable> {
 
-		public static final IntWritable one = new IntWritable(1);
+		public IntWritable time = new IntWritable();
+		time.set(1);
 		public Text word = new Text();
 
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			StringTokenizer itr = new StringTokenizer(value.toString());
 			while (itr.hasMoreTokens()) {
 				word.set(itr.nextToken());
-				context.write(word, one);
+				context.write(word, time);
 			}
 		}
 	}
