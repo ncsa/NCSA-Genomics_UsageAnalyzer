@@ -15,10 +15,10 @@ public class AllTime {
 	public static class TokenManager extends Mapper<Object, Text, Text, IntWritable> {
 
 		public IntWritable time = new IntWritable();
-		time.set(1);
 		public Text word = new Text();
 
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+			time.set(1);
 			StringTokenizer itr = new StringTokenizer(value.toString());
 			while (itr.hasMoreTokens()) {
 				word.set(itr.nextToken());
