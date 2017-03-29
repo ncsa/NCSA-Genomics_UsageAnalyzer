@@ -21,7 +21,6 @@ public class AllTime {
 
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 
-			StringTokenizer itr = new StringTokenizer(value.toString());
 			BufferedReader buff = new BufferedReader(new StringReader(value.toString()));
 			
 			String[] tokens;
@@ -29,10 +28,10 @@ public class AllTime {
 			while ((line = buff.readLine()) != null) {
 				tokens = line.split(" ");
 				System.out.println(tokens[1].split(";")[1]);
-			}
-
-			while (itr.hasMoreTokens()) {
-				word.set(itr.nextToken());
+				if (tokens[1].split(";")[1] == "E") {
+					word.set(tokens[2].split("=")[0]);
+					time.set(Double.parseDouble(tokens[21].split("=")[1]) - Double.parseDouble(tokens[9].split("=")[1]));
+				}
 				context.write(word, time);
 			}
 		}
