@@ -35,8 +35,19 @@ public class AllTime {
 			while ((line = buff.readLine()) != null) {
 				tokens = line.split(" ");
 				if (tokens[1].split(";")[1].equals("E")) {
+					for (int i = 0; i < tokens.length; i++) {
+						String[] subToken = tokens[i].split("=");
+						if (subToken[0].equals("group")) {
+							System.out.println(subToken[1]);
+						} else if (subToken[0].equals("start")) {
+							System.out.println("start");
+						} else if (subToken[0].equals("end")) {
+							System.out.println("end");
+						}
+					}
+				}
+				if (tokens[1].split(";")[1].equals("E")) {
 					word.set(tokens[2].split("=")[1]);
-					System.out.println(tokens[20].split("=")[0] + ": " + tokens[20].split("=")[1]);
 					time.set(Double.parseDouble(tokens[20].split("=")[1]) - Double.parseDouble(tokens[9].split("=")[1]));
 				}
 				context.write(word, time);
