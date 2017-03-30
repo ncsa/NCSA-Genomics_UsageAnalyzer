@@ -51,6 +51,7 @@ public class AllTime {
 						}
 					}
 					if (groupString != null) {
+						groupString += "::" + tokens[1].split("/")[1] + "/" + tokens[0].split("/")[2];
 						groupName.set(groupString);
 						time.set(end - start);
 					}
