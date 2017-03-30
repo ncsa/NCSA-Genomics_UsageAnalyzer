@@ -22,7 +22,7 @@ public class AllTime {
 	public static class TokenManager extends Mapper<Object, Text, Text, DoubleWritable> {
 
 		public DoubleWritable time = new DoubleWritable(1.0);
-		public Text word = new Text();
+		public Text groupName = new Text();
 		
 		// Maps the time taken for a job to their group name.
 		// Parameters: key (Object) unused key object
@@ -37,22 +37,23 @@ public class AllTime {
 			while ((line = buff.readLine()) != null) {
 				tokens = line.split(" ");
 				if (tokens[1].split(";")[1].equals("E")) {
+					String groupString;
+					double start, end;
 					for (int i = 0; i < tokens.length; i++) {
 						String[] subToken = tokens[i].split("=");
 						if (subToken[0].equals("group")) {
-							System.out.println(subToken[1]);
+							groupString = subToken[1];
 						} else if (subToken[0].equals("start")) {
-							System.out.println("start");
+							start = Double.parseDouble(subToken[1]);
 						} else if (subToken[0].equals("end")) {
-							System.out.println("end");
+							end = Double.parseDouble(subToken[1]);
 						}
 					}
+					groupName.set(groupString);
+					time.set(end - start);
 				}
-				if (tokens[1].split(";")[1].equals("E")) {
-					word.set(tokens[2].split("=")[1]);
-					time.set(Double.parseDouble(tokens[20].split("=")[1]) - Double.parseDouble(tokens[9].split("=")[1]));
-				}
-				context.write(word, time);
+				System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
+				context.write(groupName, time);
 			}
 		}
 	}
