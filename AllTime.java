@@ -36,7 +36,7 @@ public class AllTime {
 				tokens = line.split(" ");
 				if (tokens[1].split(";")[1].equals("E")) {
 					word.set(tokens[2].split("=")[1]);
-					System.out.println(tokens[20].split("=")[0]);
+					System.out.println(tokens[20].split("=")[0] + ": " + tokens[20].split("=")[1]);
 					time.set(Double.parseDouble(tokens[20].split("=")[1]) - Double.parseDouble(tokens[9].split("=")[1]));
 				}
 				context.write(word, time);
