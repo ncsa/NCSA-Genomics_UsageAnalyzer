@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=24
+#PBS -l walltime=4:00:00
+#PBS -q normal
+#PBS -N hadoop_test
+#PBS -A aaa
+#PBS -m abe
+#PBS -M rchui2@illinois.edu
+
+cd ~/UsageAnalyzer/
+rm -rf output/
+module load /usr/local/apps/bioapps/modules/hadoop/hadoop-2.8.0
+hadoop jar at.jar AllTime ../input/ output/
