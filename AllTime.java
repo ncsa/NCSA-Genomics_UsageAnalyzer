@@ -53,7 +53,7 @@ public class AllTime {
 		//             values (Iterable<DoubleWritable>) times for each job
 		//             context (Context) map/reduce object to interact with Hadoop system
 		public void reduce(Text key, Iterable<DoubleWritable> values, Context context) throws IOException, InterruptedException {
-			int sum = 0;
+			double sum = 0.0;
 			for (DoubleWritable val: values) {
 				sum += val.get();
 			}
