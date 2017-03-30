@@ -13,6 +13,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+// TODO: write variable token reader
+
 // Maps jobs by group and reduces the amount of time taken for each job.
 public class AllTime {
 
