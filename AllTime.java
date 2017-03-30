@@ -34,6 +34,7 @@ public class AllTime {
 			String line = null;
 			while ((line = buff.readLine()) != null) {
 				tokens = line.split(" ");
+				System.out.println(tokens[1].split(";")[1]);
 				if (tokens[1].split(";")[1] == "E") {
 					word.set(tokens[2].split("=")[0]);
 					time.set(Double.parseDouble(tokens[21].split("=")[1]) - Double.parseDouble(tokens[9].split("=")[1]));
