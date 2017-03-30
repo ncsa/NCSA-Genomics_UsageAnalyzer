@@ -37,8 +37,9 @@ public class AllTime {
 			while ((line = buff.readLine()) != null) {
 				tokens = line.split(" ");
 				if (tokens[1].split(";")[1].equals("E")) {
-					String groupString;
-					double start, end;
+					String groupString = null;
+					double start = 0;
+					double end = 0;
 					for (int i = 0; i < tokens.length; i++) {
 						String[] subToken = tokens[i].split("=");
 						if (subToken[0].equals("group")) {
@@ -49,8 +50,10 @@ public class AllTime {
 							end = Double.parseDouble(subToken[1]);
 						}
 					}
-					groupName.set(groupString);
-					time.set(end - start);
+					if (groupString != null) {
+						groupName.set(groupString);
+						time.set(end - start);
+					}
 				}
 				System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
 				context.write(groupName, time);
