@@ -55,7 +55,7 @@ public class AllTime {
 						time.set(end - start);
 					}
 				}
-				// System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
+				System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
 				context.write(groupName, time);
 			}
 		}
