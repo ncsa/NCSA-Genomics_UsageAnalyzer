@@ -43,7 +43,7 @@ public class AllTime {
 					for (int i = 0; i < tokens.length; i++) {
 						String[] subToken = tokens[i].split("=");
 						if (subToken[0].equals("group")) {
-							groupString = subToken[1];
+							groupString = subToken[1] + "::" + tokens[0].split("/")[1] + "/" + tokens[0].split("/")[2];
 						} else if (subToken[0].equals("start")) {
 							start = Double.parseDouble(subToken[1]);
 						} else if (subToken[0].equals("end")) {
@@ -51,7 +51,6 @@ public class AllTime {
 						}
 					}
 					if (groupString != null) {
-						System.out.println("<" + groupString + "::" + tokens[0].split("/")[1] + "/" + tokens[0].split("/")[2] + ", " + time.toString() + ">");
 						groupName.set(groupString);
 						time.set(end - start);
 					}
