@@ -56,6 +56,7 @@ public class AllTime {
 					}
 				}
 				System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
+				System.out.println("<" + groupString + "::" + tokens[0].split("/")[1] + "/" + tokens[0].split("/")[2] + ", " + time.toString() + ">");
 				context.write(groupName, time);
 			}
 		}
