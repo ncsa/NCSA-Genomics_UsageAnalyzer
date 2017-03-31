@@ -51,12 +51,12 @@ public class AllTime {
 						}
 					}
 					if (groupString != null) {
+						System.out.println("<" + groupString + "::" + tokens[0].split("/")[1] + "/" + tokens[0].split("/")[2] + ", " + time.toString() + ">");
 						groupName.set(groupString);
 						time.set(end - start);
 					}
 				}
-				System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
-				System.out.println("<" + groupString + "::" + tokens[0].split("/")[1] + "/" + tokens[0].split("/")[2] + ", " + time.toString() + ">");
+				// System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
 				context.write(groupName, time);
 			}
 		}
