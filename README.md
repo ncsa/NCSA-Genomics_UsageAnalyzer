@@ -32,13 +32,12 @@ module load $(HADOOP_HOME)/$(HADOOP_VER)
 ./compile.sh
 ```
 
-### Run
-#### With Script
+### Run With Script
 ```
 $(SUBMIT_CMD) script.to.run.sub
 ```
 
-#### Without Script
+### Run Without Script
 ```
 hadoop jar $(L_JOB_TYPE).jar $(JOB_TYPE)Time ../$(JOB_TYPE).input/ ../$(JOB_TYPE).output/
 ```
