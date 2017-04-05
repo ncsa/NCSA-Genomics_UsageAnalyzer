@@ -7,20 +7,6 @@ PBSTime.java will process PBS torque usage logs and will sum by month the time p
 ### OGETime.java
 OGETime.java will process OGE/SGE usage logs and will sum by month the time per group for all jobs that ended.
 
-## Submission Script Example
-```
-# PBS.run.sub
-#!/bin/bash                                                                                                                             
-#PBS -l nodes=1:ppn=24
-#PBS -l walltime=4:00:00
-#PBS -q normal
-
-cd ~/UsageAnalyzer/
-rm -rf ../PBS.output/
-module load $(HADOOP_HOME)/hadoop-x.x.x
-hadoop jar pbs.jar PBSTime ../PBS.input/ ../PBS.output/
-```
-
 ## Usage
 Remember to add hadoop binaries and libraries to your paths before compiling. Copy and edit the example script for your environment. The installation and run steps will depend on your environment. We will use the following general variables as placeholders for a general example:
 ```
@@ -55,4 +41,18 @@ $(SUBMIT_CMD) script.to.run.sub
 #### Without Script
 ```
 hadoop jar $(L_JOB_TYPE).jar $(JOB_TYPE)Time ../$(JOB_TYPE).input/ ../$(JOB_TYPE).output/
+```
+
+## Submission Script Example
+```
+# PBS.run.sub
+#!/bin/bash                                                                                                                             
+#PBS -l nodes=1:ppn=24
+#PBS -l walltime=4:00:00
+#PBS -q normal
+
+cd ~/UsageAnalyzer/
+rm -rf ../PBS.output/
+module load $(HADOOP_HOME)/hadoop-x.x.x
+hadoop jar pbs.jar PBSTime ../PBS.input/ ../PBS.output/
 ```
