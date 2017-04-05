@@ -48,7 +48,7 @@ public class OGETime {
 				walltime = Double.parseDouble(tokens[13]);
 				if (groupString != null) {
 					groupName.set(groupString);
-					time.set(tokens);
+					time.set(Double.parseDouble(tokens));
 				}
 				context.write(groupName, time);
 				// tokens = line.split(" ");
