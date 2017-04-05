@@ -32,7 +32,11 @@ public class OGETime {
 			
 			String[] tokens;
 			String line = null;
+			// TODO: Group = 2, WallClock = 13
+			// TOOD: Submission = 8 -> Need to convert from GMT Unix timestamp to human time
 			while ((line = buff.readLine()) != null) {
+				tokens = line.split(":");
+				groupName
 				// tokens = line.split(" ");
 				// if (tokens[1].split(";")[1].equals("E")) {
 					// String groupString = null;
