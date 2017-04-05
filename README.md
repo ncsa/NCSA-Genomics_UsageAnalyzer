@@ -23,12 +23,12 @@ hadoop jar pbs.jar PBSTime ../PBS.input/ ../PBS.output/
 
 ## Usage
 Remember to add hadoop binaries and libraries to your paths before compiling. Copy and edit the example script for your environment.The installation, build, and run steps will depend on your environment. We will use the following general variables as placeholders for a general example:
-
+```
 $(JOB_TYPE) = PBS, OGE
 $(L_JOB_TYPE) = pbs, oge
 $(HADOOP_HOME) = path/to/hadoop/installation
 $(SUBMIT_CMD) = qsub, etc.
-
+```
 UsageAnalyzer expects the following file directory structure:
 ```
 ./
