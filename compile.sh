@@ -1,7 +1,5 @@
 #!/bin/bash
 
-hadoop com.sun.tools.javac.Main src/PBSTime.java
+hadoop com.sun.tools.javac.Main -d ./ src/*.java
 jar cf pbs.jar PBSTime*.class
-
-hadoop com.sun.tools.javac.Main src/OGETime.java
 jar cf oge.jar OGETime*.class
