@@ -16,7 +16,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 // TODO: write variable token reader
 
 // Maps jobs by group and reduces the amount of time taken for each job.
-public class AllTime {
+public class PBSTime {
 
 	// Instance to map jobs.
 	public static class TokenManager extends Mapper<Object, Text, Text, DoubleWritable> {
@@ -85,7 +85,7 @@ public class AllTime {
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
 		Job job = Job.getInstance(conf, "all time");
-		job.setJarByClass(AllTime.class);
+		job.setJarByClass(PBSTime.class);
 		job.setMapperClass(TokenManager.class);
 		job.setCombinerClass(DoubleSumReducer.class);
 		job.setReducerClass(DoubleSumReducer.class);
