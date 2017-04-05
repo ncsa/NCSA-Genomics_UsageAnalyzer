@@ -14,6 +14,6 @@ OGETime.java will process PBS torque usage logs and will sum the time per group 
 	#PBS -q normal
 
 	cd ~/UsageAnalyzer/
-	rm -rf ../output/
+	rm -rf ../PBS.output/
 	module load /usr/local/apps/bioapps/modules/hadoop/hadoop-2.8.0
-	hadoop jar pbs.jar AllTime ../input/ ../output/
+	hadoop jar pbs.jar PBSTime ../PBS.input/ ../PBS.output/
