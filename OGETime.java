@@ -34,8 +34,6 @@ public class OGETime {
 			
 			String[] tokens;
 			String line = null;
-			// TODO: Group = 2, WallClock = 13
-			// TODO: Submission = 8 -> Need to convert from GMT Unix timestamp to human time
 			while ((line = buff.readLine()) != null) {
 				String groupString = null;
 				double walltime = 0;
@@ -54,28 +52,6 @@ public class OGETime {
 					time.set(walltime);
 				}
 				context.write(groupName, time);
-				// tokens = line.split(" ");
-				// if (tokens[1].split(";")[1].equals("E")) {
-					// String groupString = null;
-					// double start = 0;
-					// double end = 0;
-					// for (int i = 0; i < tokens.length; i++) {
-						// String[] subToken = tokens[i].split("=");
-						// if (subToken[0].equals("group")) {
-							// groupString = subToken[1] + "::" + tokens[0].split("/")[2] + "/" + tokens[0].split("/")[0];
-						// } else if (subToken[0].equals("start")) {
-							// start = Double.parseDouble(subToken[1]);
-						// } else if (subToken[0].equals("end")) {
-							// end = Double.parseDouble(subToken[1]);
-						// }
-					// }
-					// if (groupString != null) {
-						// groupName.set(groupString);
-						// time.set(end - start);
-					// }
-				// }
-				// System.out.println("<" + groupName.toString() + ", " + time.toString() + ">");
-				// context.write(groupName, time);
 			}
 		}
 	}
