@@ -15,5 +15,5 @@ OGETime.java will process OGE/SGE usage logs and will sum by month the time per 
 
 	cd ~/UsageAnalyzer/
 	rm -rf ../PBS.output/
-	module load /usr/local/apps/bioapps/modules/hadoop/hadoop-2.8.0
+	module load $(HADOOP_HOME)/hadoop-x.x.x
 	hadoop jar pbs.jar PBSTime ../PBS.input/ ../PBS.output/
