@@ -34,25 +34,25 @@ UsageAnalyzer expects the following file directory structure:
 ./UsageAnalyzer
 ./UsageAnalyzer/script.to.run.sub
 ```
-## Installation
+### Installation
 ```
 git clone https://github.com/rchui/UsageAnalyzer.git
 ```
 
-## Build
+### Build
 $(HADOOP_HOME) = path to where your installation of hadoop is.
 ```
 module load $(HADOOP_HOME)/hadoop-x.x.x
 ./compile.sh
 ```
 
-## Run
-### With Script
+### Run
+#### With Script
 ```
 qsub PBS.run.sub
 ```
 
-### Without Script
+#### Without Script
 ```
 hadoop jar pbs.jar PBSTime ../PBS.input/ ../PBS.output/
 ```
