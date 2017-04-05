@@ -1,4 +1,4 @@
 #!/bin/bash
 
-hadoop com.sun.tools.javac.Main AllTime.java
-jar cf at.jar AllTime*.class
+hadoop com.sun.tools.javac.Main PBSTime.java
+jar cf at.jar PBSTime*.class
