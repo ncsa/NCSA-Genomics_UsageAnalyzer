@@ -36,7 +36,7 @@ UsageAnalyzer expects the following file directory structure:
 ./$(JOB_TYPE).input
 ./$(JOB_TYPE).input/FilesToAnalyze.txt
 ./UsageAnalyzer
-./UsageAnalyzer/$(JOB_TYPE).run.sub
+./UsageAnalyzer/script.to.run.sub
 ```
 ### Installation
 ```
@@ -49,7 +49,7 @@ module load $(HADOOP_HOME)/$(HADOOP_VER)
 ### Run
 #### With Script
 ```
-$(SUBMIT_CMD) $(JOB_TYPE).run.sub
+$(SUBMIT_CMD) script.to.run.sub
 ```
 
 #### Without Script
