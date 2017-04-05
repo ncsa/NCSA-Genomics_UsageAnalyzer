@@ -40,13 +40,16 @@ public class OGETime {
 				String groupString = null;
 				double walltime = 0;
 				tokens = line.split(":");
-				
-				groupString = tokens[2];
-				Date date = new Date(Long.parseLong(tokens[8]) * 1000);
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM");
-				System.out.println(sdf.format(date));
-				walltime = Double.parseDouble(tokens[13]);
+				if (tokens[2] != "") {
+					groupString = tokens[2];
+				}
 				if (groupString != null) {
+					Date date = new Date(Long.parseLong(tokens[8]) * 1000);
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM");
+					String timeStamp = sdf.format(date);
+					walltime = Double.parseDouble(tokens[13]);
+					groupString += "::" + timeStamp;
+
 					groupName.set(groupString);
 					time.set(walltime);
 				}
