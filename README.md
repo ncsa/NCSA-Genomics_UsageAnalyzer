@@ -27,6 +27,7 @@ Remember to add hadoop binaries and libraries to your paths before compiling. Co
 $(JOB_TYPE) = PBS, OGE
 $(L_JOB_TYPE) = pbs, oge
 $(HADOOP_HOME) = path/to/hadoop/installation
+$(HADOOP_VER) = hadoop-2.8.0, etc.
 $(SUBMIT_CMD) = qsub, etc.
 ```
 UsageAnalyzer expects the following file directory structure:
@@ -40,7 +41,8 @@ UsageAnalyzer expects the following file directory structure:
 ### Installation
 ```
 git clone https://github.com/rchui/UsageAnalyzer.git
-module load $(HADOOP_HOME)/hadoop-x.x.x
+cd UsageAnalyzer/
+module load $(HADOOP_HOME)/$(HADOOP_VER)
 ./compile.sh
 ```
 
