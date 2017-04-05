@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.StringReader;
 import java.util.StringTokenizer;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -33,10 +35,22 @@ public class OGETime {
 			String[] tokens;
 			String line = null;
 			// TODO: Group = 2, WallClock = 13
-			// TOOD: Submission = 8 -> Need to convert from GMT Unix timestamp to human time
+			// TODO: Submission = 8 -> Need to convert from GMT Unix timestamp to human time
 			while ((line = buff.readLine()) != null) {
+				String groupString = null;
+				double walltime = 0;
 				tokens = line.split(":");
-				groupName
+				
+				groupString = tokens[2];
+				Date date = new Date(Long.parseLong(tokens[8]) * 1000);
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM");
+				System.out.println(sdf.format(date));
+				walltime = Double.parseDouble(tokens[13]);
+				if (groupString != null) {
+					groupName.set(groupString);
+					time.set(tokens);
+				}
+				context.write(groupName, time);
 				// tokens = line.split(" ");
 				// if (tokens[1].split(";")[1].equals("E")) {
 					// String groupString = null;
